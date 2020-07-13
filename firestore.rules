@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /Household/{householdID}/{document=**} {
+      allow read, write: if get(/databases/$(database)/documents/Household/$(householdID)) == null
+			&& request.auth.uid != null
+			|| get(/databases/$(database)/documents/Household/$(householdID)).data.access[request.auth.uid] != null
+      && get(/databases/$(database)/documents/Household/$(householdID)).data.access[request.auth.uid].active == true
+    }
+    match /Users/{userID} {
+      allow read, write: if request.auth.uid == userID
+    }
+  }
+}
