@@ -1,7 +1,7 @@
-### Finances App Firebase Backend
+# Finances App Firebase Backend
 Backend connection for Finances App
 
-**[DEMO](https://website-ee18e.firebaseapp.com/lab/finances-app)**
+**[DEMO](https://nckdev.agency/lab/finances-app/en)**
 
 Create a Firebase and add an admin key to to `key/`
 
